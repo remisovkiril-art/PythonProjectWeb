@@ -1,11 +1,19 @@
-def even_numbers(start, end):
-    result = []
+def values_in_range(numbers, start, end):
+    for number in numbers:
+        if start <= end:
+            if start <= number <= end:
+                yield number
+        else:
+            if end <= number <= start:
+                yield number
 
-    for number in range(start, end + 1):
-        if number % 2 == 0:
-            result.append(number)
 
-    return result
+numbers = [1, 5, 10, 15, 20, 25, 30]
 
+start = int(input("Введіть початок діапазону: "))
+end = int(input("Введіть кінець діапазону: "))
 
-print(even_numbers(1, 10))
+generator = values_in_range(numbers, start, end)
+
+for number in generator:
+    print(number)
