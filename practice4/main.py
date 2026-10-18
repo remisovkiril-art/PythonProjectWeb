@@ -1,0 +1,27 @@
+from my_int_array import MyIntArray
+
+arr1 = MyIntArray([1, 2, 3])
+arr2 = MyIntArray([4, 5, 6])
+arr3 = MyIntArray([1, 2, 3])
+
+print("First array:")
+print(arr1)
+print("Second array:")
+print(arr2)
+print("Array addition:")
+print(arr1 + arr2)
+print("Add a number:")
+print(arr1 + 10)
+print("Array multiplication:")
+print(arr1 * arr2)
+print("Multiply by a number:")
+print(arr1 * 2)
+print("Array comparison:")
+print(arr1 == arr3)
+print("Get an element:")
+print(arr1[1])
+print("Set an element:")
+arr1[0] = 100
+print(arr1)
+print("Invalid index:")
+print(arr1[10])
