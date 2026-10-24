@@ -1,5 +1,3 @@
-from User import *
-
 # Player = type(
 #     "Player",
 #     (),
@@ -69,8 +67,6 @@ from User import *
 #
 # a = Counter()
 # print(a.counter)
-
-from User import *
 
 
 us1 = User([],"Bogdan", 40)
