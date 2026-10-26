@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }}{% else %}Default Page{% endif %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="banner">
+            <div class="banner-text">
+                <p class="subtitle">Свіжі фрукти — для здорового життя</p>
+                <h1>Натуральні фрукти<br>з усього світу</h1>
+                <p>Соковиті, смачні, корисні — обирайте свої улюблені фрукти в нашому магазині!</p>
+                <a href="#products" class="banner-button">Перейти до каталогу →</a>
+            </div>
+
+            <div class="banner-fruits">🍌 🍊 🍎 🍓 🍇</div>
+        </header>
+
+        <main class="layout">
+
+            <aside class="sidebar">
+                <h3>▦ Категорії</h3>
+
+                <ul class="category-list">
+                    {% for el in categories %}
+                    <li>{{ el }}</li>
+                    {% endfor %}
+                </ul>
+
+                <div class="filter">
+                    <h3>Ціна</h3>
+                    <div class="price-line"></div>
+                    <div class="price-values">
+                        <span>20 грн</span>
+                        <span>350 грн</span>
+                    </div>
+                </div>
+
+                <div class="filter">
+                    <h3>Наявність</h3>
+                    <p>☑ В наявності</p>
+                </div>
+
+                <div class="filter">
+                    <h3>Сортувати за</h3>
+                    <select>
+                        <option>Популярністю</option>
+                        <option>Ціною</option>
+                        <option>Назвою</option>
+                    </select>
+                </div>
+            </aside>
+
+            <section class="catalog" id="products">
+                <div class="catalog-header">
+                    <div>
+                        <h2>{{ title }}</h2>
+                        <p>Знайдено {{ products|length }} товарів</p>
+                    </div>
+                    <span class="view-icon">▦</span>
+                </div>
+
+                <div class="product-list">
+                    {% for el in products %}
+                    <div class="product-card">
+
+                        <div class="product-image">
+                            <img src="{{ el.image }}" alt="{{ el.name }}"></div>
+
+                        <div class="product-info">
+                            <h3>{{ el.name }}</h3>
+                            <p class="price">{{ el.price }} грн / кг</p>
+                            <p class="rating">★★★★★ <span>4.8</span></p>
+                            <button>🛒 Додати в кошик</button>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
