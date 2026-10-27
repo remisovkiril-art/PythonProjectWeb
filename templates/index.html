@@ -69,13 +69,24 @@
                     {% for el in products %}
                     <div class="product-card">
 
-                        <div class="product-image">
-                            <img src="{{ el.image }}" alt="{{ el.name }}"></div>
+                        <a class="product-link"
+                           href="{{ url_for('product_by_id', product_id=el.id) }}">
+
+                            <div class="product-image">
+                                <img src="{{ el.image }}" alt="{{ el.title }}">
+                            </div>
+
+                            <div class="product-info">
+                                <h3>{{ el.title }}</h3>
+                                <p class="price">{{ el.price }} грн / кг</p>
+                                <p class="rating">
+                                    ★★★★★ <span>{{ el.rating }}</span>
+                                </p>
+                            </div>
+
+                        </a>
 
                         <div class="product-info">
-                            <h3>{{ el.name }}</h3>
-                            <p class="price">{{ el.price }} грн / кг</p>
-                            <p class="rating">★★★★★ <span>4.8</span></p>
                             <button>🛒 Додати в кошик</button>
                         </div>
 

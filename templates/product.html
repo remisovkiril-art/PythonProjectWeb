@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+
+        <a href="{{ url_for('home') }}" class="back-button">
+            ← Повернутися до каталогу
+        </a>
+
+        <div class="detail-card">
+
+            <div class="detail-image">
+                <img src="{{ product.image }}" alt="{{ product.title }}">
+            </div>
+
+            <div class="detail-info">
+                <h1>{{ product.title }}</h1>
+
+                <p class="detail-rating">
+                    ★★★★★ {{ product.rating }}
+                </p>
+
+                <p class="detail-price">
+                    {{ product.price }} грн / кг
+                </p>
+
+                <p class="detail-description">
+                    Свіжий та натуральний фрукт для вашого здоров'я.
+                </p>
+
+                <button class="detail-button">
+                    🛒 Додати в кошик
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
