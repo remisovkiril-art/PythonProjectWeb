@@ -1,0 +1,49 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+Main Page
+{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+    <h1 class="display-5 fw-bold">Вітаємо на нашому сайті!</h1>
+
+    <p class="fs-5 text-muted">
+        Це головна сторінка сайта
+    </p>
+
+    <button class="btn btn-primary">
+        Детальніше
+    </button>
+</div>
+<div class="row g-4">
+
+    {% for card in cards %}
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+
+            <img src="{% static card.image %}"
+                 class="card-img-top" alt="{{ card.title }}">
+
+            <div class="card-body">
+                <h5 class="card-title">{{ card.title }}</h5>
+
+                <p class="card-text">
+                    {{ card.text }}
+                </p>
+
+                <a href="#" class="btn btn-primary">
+                    Детальніше
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
