@@ -1,43 +1,80 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+# from django.http import HttpResponse
+# from django.shortcuts import render
+#
+# # Create your views here.
+#
+#
+# #http://127.0.0.1:8000
+#
+# from django.shortcuts import render
+#
+#
+# def home(request):
+#     cards = [
+#         {
+#             'title': 'Django',
+#             'text': 'Django is a popular Python web framework',
+#             'image': 'main/images/django1.png'
+#         },
+#         {
+#             'title': 'Python',
+#             'text': 'Python is being used for creating websites',
+#             'image': 'main/images/django2.png'
+#         },
+#         {
+#             'title': 'Web Development',
+#             'text': 'Creation of current websites using Django',
+#             'image': 'main/images/django3.png'
+#         }
+#     ]
+#
+#     return render(request, 'main/index.html', {'cards': cards})
+#
+#
+# def about(request):
+#     text = 'Це сторінка про Нас'
+#
+#     frameworks = ['Django', 'Flask', 'Python']
+#
+#     return render(request, 'main/about.html', context={
+#         'text': text,
+#         'frameworks': frameworks
+#     })
 
-# Create your views here.
 
 
-#http://127.0.0.1:8000
+
+
+
+
 
 from django.shortcuts import render
 
 
 def home(request):
-    cards = [
+    projects = [
         {
-            'title': 'Django',
-            'text': 'Django is a popular Python web framework',
-            'image': 'main/images/django1.png'
+            'title': 'OpenAI',
+            'description': 'Соосновал компанию OpenAI, которая занимается исследованиями и разработкой искусственного интеллекта.',
+            'technologies': 'Python, Machine Learning, AI',
+            'result': 'Создание одной из ведущих компаний в сфере искусственного интеллекта.'
         },
         {
-            'title': 'Python',
-            'text': 'Python is being used for creating websites',
-            'image': 'main/images/django2.png'
+            'title': 'Stripe',
+            'description': 'Работал техническим директором Stripe и участвовал в развитии инженерной команды компании.',
+            'technologies': 'Ruby, Python, Software Engineering',
+            'result': 'Помог увеличить команду компании с 4 до 250 сотрудников.'
         },
         {
-            'title': 'Web Development',
-            'text': 'Creation of current websites using Django',
-            'image': 'main/images/django3.png'
+            'title': 'OpenAI Five',
+            'description': 'Проект искусственного интеллекта, обученного играть в Dota 2 против профессиональных команд.',
+            'technologies': 'Machine Learning, Reinforcement Learning',
+            'result': 'Система искусственного интеллекта смогла соревноваться с профессиональными игроками.'
         }
     ]
 
-    return render(request, 'main/index.html', {'cards': cards})
+    context = {
+        'projects': projects
+    }
 
-
-def about(request):
-    text = 'Це сторінка про Нас'
-
-    frameworks = ['Django', 'Flask', 'Python']
-
-    return render(request, 'main/about.html', context={
-        'text': text,
-        'frameworks': frameworks
-    })
-
+    return render(request, 'main/index.html', context)
