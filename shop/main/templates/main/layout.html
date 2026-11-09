@@ -1,139 +1,92 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}Мій сайт{% endblock %}</title>
+    <title>{% block title %}Дніпро{% endblock %}</title>
 
-    <link href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
 </head>
 
 <body class="bg-light">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
 
-            <a class="navbar-brand" href="{% url 'home' %}">
-                Мій сайт
-            </a>
+        <a class="navbar-brand" href="{% url 'home' %}">
+            Місто Дніпро
+        </a>
 
-            <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#mainMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="mainMenu">
-                <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse" id="mainMenu">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">
-                            Головна
-                        </a>
-                    </li>
+            <ul class="navbar-nav ms-auto">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about' %}">
-                            Про нас
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">
+                        Головна
+                    </a>
+                </li>
 
-                </ul>
-            </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'news' %}">
+                        Новини
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'management' %}">
+                        Керівництво
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'facts' %}">
+                        Факти
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contacts' %}">
+                        Контакти
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'history' %}">
+                        Історія
+                    </a>
+                </li>
+
+            </ul>
 
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <main class="container mt-4">
+<main class="container py-4">
 
-        {% block content %}
-        {% endblock %}
+    {% block content %}
+    {% endblock %}
 
-    </main>
+</main>
 
-    <footer class="bg-dark text-white text-center py-3 mt-5">
-        <div class="container">
-            <p class="mb-0">
-                © 2026 Мій сайт. Усі права захищені.
-            </p>
-        </div>
-    </footer>
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    <div class="container">
+        <p class="mb-0">
+            2026 Місто Дніпро
+        </p>
+    </div>
+</footer>
 
-    <script src="{% static 'main/js/bootstrap.bundle.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-{#<!DOCTYPE html>#}
-{#<html lang="ru">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
-{##}
-{#    <title>{% block title %}Резюме Грега Брокмана{% endblock %}</title>#}
-{##}
-{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"#}
-{#          rel="stylesheet">#}
-{#</head>#}
-{#<body class="bg-light">#}
-{##}
-{#<nav class="navbar navbar-expand-lg navbar-dark bg-dark">#}
-{#    <div class="container">#}
-{#        <a class="navbar-brand fw-bold" href="{% url 'home' %}">#}
-{#            Greg Brockman#}
-{#        </a>#}
-{##}
-{#        <button class="navbar-toggler" type="button"#}
-{#                data-bs-toggle="collapse"#}
-{#                data-bs-target="#navbarContent">#}
-{#            <span class="navbar-toggler-icon"></span>#}
-{#        </button>#}
-{##}
-{#        <div class="collapse navbar-collapse" id="navbarContent">#}
-{#            <ul class="navbar-nav ms-auto">#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="#about">Обо мне</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="#education">Образование</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="#skills">Навыки</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="#projects">Проекты</a>#}
-{#                </li>#}
-{#            </ul>#}
-{#        </div>#}
-{#    </div>#}
-{#</nav>#}
-{##}
-{#<main>#}
-{#    {% block content %}#}
-{#    {% endblock %}#}
-{#</main>#}
-{##}
-{#<footer class="bg-dark text-white text-center py-4 mt-5">#}
-{#    <div class="container">#}
-{#        <p class="mb-0">Резюме Грега Брокмана</p>#}
-{#    </div>#}
-{#</footer>#}
-{##}
-{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>#}
-{##}
-{#</body>#}
-{#</html>#}

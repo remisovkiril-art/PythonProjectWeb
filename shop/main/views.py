@@ -1,77 +1,77 @@
 from django.shortcuts import render
-from .cards import cards
 
 
 def home(request):
-    return render(request, 'main/index.html', {
-        'cards': cards
-    })
+    return render(request, 'main/index.html')
 
 
-def get_card(request, id):
-    if id > 0 and id <= len(cards):
-        return render(request, 'main/card.html', {
-            'card': cards[id - 1],
-            'title': f'Card {id}'
-        })
+def news(request):
+    context = {
+        'title': 'Новини міста',
+        'text': 'Тут можна дізнатися про події, новини та важливу інформацію міста Дніпро.',
+        'items': [
+            'Міські події та заходи',
+            'Транспорт та інфраструктура',
+            'Освіта та культура',
+            'Спорт та громадське життя'
+        ]
+    }
 
-    return render(request, 'main/not_found.html')
-
-
-def search_card(request):
-    search_title = request.GET.get('title', '').strip()
-
-    for card in cards:
-        if card['title'].lower() == search_title.lower():
-            return render(request, 'main/card.html', {
-                'card': card,
-                'title': card['title']
-            })
-
-    return render(request, 'main/not_found.html')
+    return render(request, 'main/section.html', context)
 
 
-def about(request):
-    text = 'Це сторінка про Нас. Це точно ця сторінка'
-    frameworks = []
+def management(request):
+    context = {
+        'title': 'Керівництво міста',
+        'text': 'Міське управління Дніпра здійснюється міською радою та її виконавчими органами.',
+        'items': [
+            'Міський голова — Борис Філатов',
+            'Міська рада',
+            'Виконавчий комітет міської ради',
+            'Департаменти та управління міської ради'
+        ]
+    }
 
-    return render(request, 'main/about.html', {
-        'text': text,
-        'frameworks': frameworks
-    })
+    return render(request, 'main/section.html', context)
 
 
+def facts(request):
+    context = {
+        'title': 'Факти про місто',
+        'text': 'Дніпро — велике місто України, розташоване на берегах річки Дніпро.',
+        'items': [
+            'Місто розташоване на річці Дніпро.',
+            'Дніпро є важливим промисловим та науковим центром України.',
+            'У місті знаходиться один із найдовших міських набережних просторів Європи.',
+            'Місто має розвинену транспортну та залізничну інфраструктуру.',
+            'Однією з відомих пам’яток є Монастирський острів.'
+        ]
+    }
+
+    return render(request, 'main/section.html', context)
 
 
+def contacts(request):
+    context = {
+        'title': 'Контактні телефони міських служб',
+        'text': 'Номери телефонів для звернення до екстрених та міських служб.',
+        'items': [
+            '112 — єдиний номер екстреної допомоги',
+            '101 — пожежно-рятувальна служба',
+            '102 — поліція',
+            '103 — швидка медична допомога',
+            '104 — аварійна газова служба',
+            '000 000 00 00 — міська служба оперативного реагування'
+        ]
+    }
+
+    return render(request, 'main/section.html', context)
 
 
-# from django.shortcuts import render
-#
-#
-# def home(request):
-#     projects = [
-#         {
-#             'title': 'OpenAI',
-#             'description': 'Соосновал компанию OpenAI, которая занимается исследованиями и разработкой искусственного интеллекта.',
-#             'technologies': 'Python, Machine Learning, AI',
-#             'result': 'Создание одной из ведущих компаний в сфере искусственного интеллекта.'
-#         },
-#         {
-#             'title': 'Stripe',
-#             'description': 'Работал техническим директором Stripe и участвовал в развитии инженерной команды компании.',
-#             'technologies': 'Ruby, Python, Software Engineering',
-#             'result': 'Помог увеличить команду компании с 4 до 250 сотрудников.'
-#         },
-#         {
-#             'title': 'OpenAI Five',
-#             'description': 'Проект искусственного интеллекта, обученного играть в Dota 2 против профессиональных команд.',
-#             'technologies': 'Machine Learning, Reinforcement Learning',
-#             'result': 'Система искусственного интеллекта смогла соревноваться с профессиональными игроками.'
-#         }
-#     ]
-#
-#     context = {
-#         'projects': projects
-#     }
-#
-#     return render(request, 'main/index.html', context)
+def history(request):
+    return render(request, 'main/history.html')
+
+
+def history_people(request):
+    return render(request, 'main/history_people.html')
+

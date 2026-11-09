@@ -1,0 +1,53 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+Відомі мешканці Дніпра
+{% endblock %}
+
+{% block content %}
+
+<div class="p-5 bg-white rounded-3 shadow-sm">
+
+    <h1 class="display-5 fw-bold">
+        Відомі мешканці Дніпра
+    </h1>
+
+    <div class="card mb-3">
+        <div class="card-body">
+
+            <h4 class="card-title">
+                Дмитро Яворницький
+            </h4>
+
+            <p class="card-text">
+                Український історик, археолог та дослідник козацтва.
+                Багато років працював директором історичного музею
+                у Катеринославі.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-body">
+
+            <h4 class="card-title">
+                Олександр Поль
+            </h4>
+
+            <p class="card-text">
+                Дослідник, археолог, підприємець та меценат.
+                Відіграв важливу роль у розвитку гірничої
+                промисловості регіону.
+            </p>
+
+        </div>
+    </div>
+
+    <a href="{% url 'history' %}" class="btn btn-primary">
+        Назад до історії
+    </a>
+
+</div>
+
+{% endblock %}

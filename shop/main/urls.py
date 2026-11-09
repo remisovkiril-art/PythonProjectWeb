@@ -3,7 +3,29 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('about/', views.about, name='about'),
-    path('card/<int:id>/', views.get_card, name='get_card'),
-    path('search/', views.search_card, name='search_card'),
+
+    path('news', views.news, name='news'),
+    path('news/', views.news, name='news'),
+    path('news/<path:extra>', views.news, name='news_extra'),
+
+    path('management', views.management, name='management'),
+    path('management/', views.management, name='management'),
+    path('management/<path:extra>', views.management, name='management_extra'),
+
+    path('facts', views.facts, name='facts'),
+    path('facts/', views.facts, name='facts'),
+    path('facts/<path:extra>', views.facts, name='facts_extra'),
+
+    path('contacts', views.contacts, name='contacts'),
+    path('contacts/', views.contacts, name='contacts'),
+    path('contacts/<path:extra>', views.contacts, name='contacts_extra'),
+
+    path('history', views.history, name='history'),
+    path('history/', views.history, name='history'),
+
+    path('history/people', views.history_people, name='history_people'),
+    path('history/people/', views.history_people, name='history_people'),
+
+
+    path('history/<path:extra>', views.history, name='history_extra'),
 ]
