@@ -18,13 +18,13 @@ Main Page
     </p>
 
 </div>
-
 <div class="card shadow-sm border-0 mb-4">
+
     <div class="card-body">
 
         <h4 class="mb-3">Пошук картки</h4>
 
-        <form action="{% url 'search_card' %}" method="get">
+        <form action="{% url 'search' %}" method="get">
 
             <div class="input-group">
 
@@ -39,6 +39,37 @@ Main Page
                 </button>
 
             </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div class="card shadow-sm border-0 mb-4">
+
+    <div class="card-body">
+
+        <h4 class="mb-3">Створити картку</h4>
+
+        <form id="createForm">
+
+            {% csrf_token %}
+
+            <input type="text" name="title"
+                   class="form-control mb-2"
+                   placeholder="Title">
+
+            <input type="text" name="description"
+                   class="form-control mb-2"
+                   placeholder="Description">
+
+            <input type="text" name="image"
+                   class="form-control mb-2"
+                   placeholder="Image">
+
+            <button type="submit" class="btn btn-success">
+                Create
+            </button>
 
         </form>
 
@@ -67,7 +98,7 @@ Main Page
                     {{ card.description }}
                 </p>
 
-                <a href="{% url 'get_card' forloop.counter %}"
+                <a href="{% url 'card' forloop.counter %}"
                    class="btn btn-primary">
                     Детальніше
                 </a>
@@ -83,6 +114,11 @@ Main Page
 </div>
 
 {% endblock %}
+
+{% block scripts %}
+<script defer src="{% static 'main/js/create_card.js' %}"></script>
+{% endblock %}
+
 
 
 

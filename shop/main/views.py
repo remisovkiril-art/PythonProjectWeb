@@ -1,47 +1,81 @@
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from .cards import cards
+import json
 
 
 def home(request):
-    return render(request, 'main/index.html', {
-        'cards': cards
-    })
+    return render(request, 'main/index.html', {'cards': cards})
 
 
 def get_card(request, id):
+
+    title = None
+
+    if request.GET.get('title'):
+        title = request.GET.get('title')
+
     if id > 0 and id <= len(cards):
         return render(request, 'main/card.html', {
             'card': cards[id - 1],
-            'title': f'Card {id}'
+            'title': title if title else f'Card {id}'
         })
+    else:
+        return HttpResponse("Not Found")
 
-    return render(request, 'main/not_found.html')
 
+def get_card_by_title(request):
 
-def search_card(request):
-    search_title = request.GET.get('title', '').strip()
+    title = None
 
-    for card in cards:
-        if card['title'].lower() == search_title.lower():
-            return render(request, 'main/card.html', {
-                'card': card,
-                'title': card['title']
-            })
+    if request.method == 'GET' and request.GET.get('title'):
+        title = request.GET.get('title')
 
-    return render(request, 'main/not_found.html')
+    elif request.method == 'POST':
+        title = request.POST.get('title')
+
+    if title is not None:
+        return JsonResponse({'title': title})
+    else:
+        return HttpResponse("Not Found")
 
 
 def about(request):
+
     text = 'Це сторінка про Нас. Це точно ця сторінка'
     frameworks = []
 
     return render(request, 'main/about.html', {
         'text': text,
-        'frameworks': frameworks
+        'frameworks': frameworks,
+        'cards': cards,
+        'data': [1, 2, 105, 102, 7, 10, 100]
     })
 
 
+def create_card(request):
 
+    if request.method == 'POST':
+        data = json.loads(request.body)
+
+        title = data.get('title')
+        description = data.get('description')
+        image = data.get('image')
+
+    return JsonResponse({'message': 'ok'})
+
+
+def register(request):
+
+    if request.method == 'POST':
+        data = json.loads(request.body)
+
+        print('Дані реєстрації:')
+        print(data)
+
+        return JsonResponse({'message': 'Реєстрація успішна'})
+
+    return render(request, 'main/register.html')
 
 
 
