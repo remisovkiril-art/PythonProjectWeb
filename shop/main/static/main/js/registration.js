@@ -4,20 +4,17 @@ document.getElementById("registerForm").addEventListener("submit", async functio
 
     const form = e.target;
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
 
     const csrfToken = form.querySelector('[name="csrfmiddlewaretoken"]').value;
-    const json = JSON.stringify(data);
 
     try {
 
         const response = await fetch(form.action, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
                 "X-CSRFToken": csrfToken
             },
-            body: json
+            body: formData
         });
 
         const result = await response.json();
@@ -26,8 +23,6 @@ document.getElementById("registerForm").addEventListener("submit", async functio
 
         if (response.ok) {
 
-            console.log("Успішна реєстрація:", result);
-
             document.getElementById("result").innerHTML =
                 '<div class="alert alert-success">Реєстрація успішна!</div>';
 
@@ -35,7 +30,8 @@ document.getElementById("registerForm").addEventListener("submit", async functio
 
         } else {
 
-            console.error(result);
+            document.getElementById("result").innerHTML =
+                '<div class="alert alert-danger">' + result.message + '</div>';
 
         }
 

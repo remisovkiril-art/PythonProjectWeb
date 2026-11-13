@@ -50,28 +50,25 @@ Main Page
     <div class="card-body">
 
         <h4 class="mb-3">Створити картку</h4>
-
-        <form id="createForm">
-
+        <form id="createForm" enctype="multipart/form-data">
             {% csrf_token %}
-
             <input type="text" name="title"
                    class="form-control mb-2"
-                   placeholder="Title">
-
+                   placeholder="Title"
+                   required>
             <input type="text" name="description"
                    class="form-control mb-2"
-                   placeholder="Description">
-
-            <input type="text" name="image"
+                   placeholder="Description"
+                   required>
+            <input type="file" name="image"
                    class="form-control mb-2"
-                   placeholder="Image">
-
+                   accept="image/*"
+                   required>
             <button type="submit" class="btn btn-success">
                 Create
             </button>
 
-        </form>
+</form>
 
     </div>
 </div>
@@ -123,247 +120,3 @@ Main Page
 
 
 
-
-
-
-
-
-
-
-{#{% extends 'main/layout.html' %}#}
-{##}
-{#{% block title %}Резюме — Грег Брокман{% endblock %}#}
-{##}
-{#{% block content %}#}
-{##}
-{#<div class="container py-5">#}
-{#    <div class="card shadow-sm border-0 mb-5">#}
-{#        <div class="card-body p-4">#}
-{#            <div class="row align-items-center">#}
-{##}
-{#                <div class="col-md-4 text-center mb-4 mb-md-0">#}
-{#                    <img src="https://www.gravatar.com/avatar/a8899262a6722e34f543a3209d16f6cd?s=300"#}
-{#                         alt="Greg Brockman"#}
-{#                         class="img-fluid rounded-circle shadow"#}
-{#                         style="max-width: 250px;">#}
-{#                </div>#}
-{##}
-{#                <div class="col-md-8">#}
-{#                    <h1 class="fw-bold">Грег Брокман</h1>#}
-{#                    <h4 class="text-primary mb-3">#}
-{#                        Сооснователь и президент OpenAI#}
-{#                    </h4>#}
-{##}
-{#                    <p class="text-muted">#}
-{#                        Предприниматель, программист и специалист#}
-{#                        в области технологий искусственного интеллекта.#}
-{#                    </p>#}
-{##}
-{#                    <hr>#}
-{##}
-{#                    <p><strong>Город проживания:</strong> Сан-Франциско, США</p>#}
-{#                    <p><strong>Email:</strong>#}
-{#                        <a href="mailto:greg@gregbrockman.com">#}
-{#                            greg@gregbrockman.com#}
-{#                        </a>#}
-{#                    </p>#}
-{#                    <p><strong>GitHub:</strong>#}
-{#                        <a href="https://github.com/gdb" target="_blank">#}
-{#                            github.com/gdb#}
-{#                        </a>#}
-{#                    </p>#}
-{#                    <p><strong>Сайт:</strong>#}
-{#                        <a href="https://gregbrockman.com/" target="_blank">#}
-{#                            gregbrockman.com#}
-{#                        </a>#}
-{#                    </p>#}
-{#                </div>#}
-{##}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#    <section id="about" class="mb-5">#}
-{#        <h2 class="fw-bold mb-3">Обо мне</h2>#}
-{##}
-{#        <div class="card border-0 shadow-sm">#}
-{#            <div class="card-body p-4">#}
-{#                <p>#}
-{#                    Грег Брокман — американский предприниматель и программист,#}
-{#                    один из основателей OpenAI. Ранее занимал должность#}
-{#                    технического директора компании Stripe.#}
-{#                </p>#}
-{##}
-{#                <p>#}
-{#                    Он участвовал в создании программных продуктов,#}
-{#                    развитии инженерных команд и разработке технологий#}
-{#                    искусственного интеллекта.#}
-{#                </p>#}
-{##}
-{#                <h5 class="fw-bold mt-4">Личные качества</h5>#}
-{#                <ul>#}
-{#                    <li>Аналитическое мышление.</li>#}
-{#                    <li>Техническая грамотность.</li>#}
-{#                    <li>Лидерские качества.</li>#}
-{#                    <li>Умение работать в команде.</li>#}
-{#                    <li>Ориентация на результат.</li>#}
-{#                </ul>#}
-{##}
-{#                <h5 class="fw-bold mt-4">Профессиональная цель</h5>#}
-{#                <p class="mb-0">#}
-{#                    Развитие безопасного и полезного искусственного интеллекта,#}
-{#                    а также создание технологий, способных решать сложные#}
-{#                    задачи и приносить пользу обществу.#}
-{#                </p>#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
-{#    <section id="education" class="mb-5">#}
-{#        <h2 class="fw-bold mb-3">Образование</h2>#}
-{##}
-{#        <div class="card border-0 shadow-sm">#}
-{#            <div class="card-body p-4">#}
-{##}
-{#                <h5 class="fw-bold">Harvard University</h5>#}
-{#                <p class="mb-1">Направление: математика и смежные дисциплины.</p>#}
-{#                <p class="text-muted">#}
-{#                    Обучался до перехода в Massachusetts Institute of Technology.#}
-{#                </p>#}
-{##}
-{#                <hr>#}
-{##}
-{#                <h5 class="fw-bold">#}
-{#                    Massachusetts Institute of Technology (MIT)#}
-{#                </h5>#}
-{#                <p class="mb-1">Направление: компьютерные науки.</p>#}
-{#                <p class="text-muted mb-0">#}
-{#                    Изучал компьютерные науки, но не завершил обучение.#}
-{#                </p>#}
-{##}
-{#                <div class="alert alert-info mt-3 mb-0">#}
-{#                    Примечание: Грег Брокман учился в обоих университетах,#}
-{#                    но не получил там диплом.#}
-{#                </div>#}
-{##}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
-{#    <section id="skills" class="mb-5">#}
-{#        <h2 class="fw-bold mb-3">Навыки</h2>#}
-{##}
-{#        <div class="row g-4">#}
-{##}
-{#            <div class="col-md-4">#}
-{#                <div class="card h-100 border-0 shadow-sm">#}
-{#                    <div class="card-body">#}
-{#                        <h5 class="card-title fw-bold">Программирование</h5>#}
-{#                        <ul class="mb-0">#}
-{#                            <li>Python</li>#}
-{#                            <li>Ruby</li>#}
-{#                            <li>Git</li>#}
-{#                            <li>Разработка программного обеспечения</li>#}
-{#                        </ul>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#            <div class="col-md-4">#}
-{#                <div class="card h-100 border-0 shadow-sm">#}
-{#                    <div class="card-body">#}
-{#                        <h5 class="card-title fw-bold">Технологии</h5>#}
-{#                        <ul class="mb-0">#}
-{#                            <li>Искусственный интеллект</li>#}
-{#                            <li>Машинное обучение</li>#}
-{#                            <li>Разработка систем</li>#}
-{#                            <li>Работа с большими проектами</li>#}
-{#                        </ul>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#            <div class="col-md-4">#}
-{#                <div class="card h-100 border-0 shadow-sm">#}
-{#                    <div class="card-body">#}
-{#                        <h5 class="card-title fw-bold">Иностранные языки</h5>#}
-{#                        <ul class="mb-0">#}
-{#                            <li>Английский — рабочий язык</li>#}
-{#                        </ul>#}
-{#                        <p class="text-muted small mt-3 mb-0">#}
-{#                            Другие подтверждённые сведения о владении#}
-{#                            иностранными языками публично не указаны.#}
-{#                        </p>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#        </div>#}
-{#    </section>#}
-{#    <section id="projects" class="mb-5">#}
-{#        <h2 class="fw-bold mb-3">Опыт работы и проекты</h2>#}
-{##}
-{#        <div class="row g-4">#}
-{##}
-{#            {% for project in projects %}#}
-{#            <div class="col-md-6 col-lg-4">#}
-{#                <div class="card h-100 border-0 shadow-sm">#}
-{#                    <div class="card-body">#}
-{#                        <h5 class="card-title fw-bold text-primary">#}
-{#                            {{ project.title }}#}
-{#                        </h5>#}
-{##}
-{#                        <p class="card-text">#}
-{#                            {{ project.description }}#}
-{#                        </p>#}
-{##}
-{#                        <p>#}
-{#                            <strong>Технологии:</strong><br>#}
-{#                            {{ project.technologies }}#}
-{#                        </p>#}
-{##}
-{#                        <p class="mb-0">#}
-{#                            <strong>Результат:</strong><br>#}
-{#                            {{ project.result }}#}
-{#                        </p>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#            {% empty %}#}
-{#            <div class="col-12">#}
-{#                <p>Проекты пока не добавлены.</p>#}
-{#            </div>#}
-{#            {% endfor %}#}
-{##}
-{#        </div>#}
-{#    </section>#}
-{##}
-{#    <section class="mb-4">#}
-{#        <h2 class="fw-bold mb-3">Контакты</h2>#}
-{##}
-{#        <div class="card border-0 shadow-sm">#}
-{#            <div class="card-body p-4">#}
-{#                <p>#}
-{#                    <strong>Личный сайт:</strong>#}
-{#                    <a href="https://gregbrockman.com/" target="_blank">#}
-{#                        gregbrockman.com#}
-{#                    </a>#}
-{#                </p>#}
-{##}
-{#                <p>#}
-{#                    <strong>GitHub:</strong>#}
-{#                    <a href="https://github.com/gdb" target="_blank">#}
-{#                        github.com/gdb#}
-{#                    </a>#}
-{#                </p>#}
-{##}
-{#                <p class="mb-0">#}
-{#                    <strong>Twitter / X:</strong>#}
-{#                    <a href="https://x.com/gdb" target="_blank">#}
-{#                        @gdb#}
-{#                    </a>#}
-{#                </p>#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
-{##}
-{#</div>#}
-{##}
-{#{% endblock %}#}

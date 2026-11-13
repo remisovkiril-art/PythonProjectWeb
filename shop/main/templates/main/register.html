@@ -1,5 +1,6 @@
 {% extends 'main/layout.html' %}
 {% load static %}
+
 {% block title %}
 Реєстрація
 {% endblock %}
@@ -20,12 +21,24 @@
 
                 <form id="registerForm"
                       action="{% url 'register' %}"
-                      method="post">
+                      method="post"
+                      enctype="multipart/form-data">
 
                     {% csrf_token %}
 
                     <div class="mb-3">
+                        <label class="form-label">
+                            Прізвище
+                        </label>
 
+                        <input type="text"
+                               name="surname"
+                               class="form-control"
+                               placeholder="Введіть прізвище"
+                               required>
+                    </div>
+
+                    <div class="mb-3">
                         <label class="form-label">
                             Ім'я
                         </label>
@@ -35,11 +48,9 @@
                                class="form-control"
                                placeholder="Введіть ім'я"
                                required>
-
                     </div>
 
                     <div class="mb-3">
-
                         <label class="form-label">
                             Email
                         </label>
@@ -49,11 +60,9 @@
                                class="form-control"
                                placeholder="Введіть email"
                                required>
-
                     </div>
 
                     <div class="mb-3">
-
                         <label class="form-label">
                             Пароль
                         </label>
@@ -63,7 +72,17 @@
                                class="form-control"
                                placeholder="Введіть пароль"
                                required>
+                    </div>
 
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Аватар
+                        </label>
+
+                        <input type="file"
+                               name="avatar"
+                               class="form-control"
+                               accept="image/*">
                     </div>
 
                     <button type="submit"
